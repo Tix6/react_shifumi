@@ -69,14 +69,7 @@
       "react"
     ],
     "plugins": [
-      "ramda",
-      [
-        "import",
-        {
-          "libraryName": "antd",
-          "style": "css"
-        }
-      ]
+      "ramda"
     ]
   }
 }

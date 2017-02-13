@@ -1,21 +1,25 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import styled from 'styled-components';
+import HumanBoard from '../HumanBoard/';
+import Infos from '../Infos';
+import ComputerBoard from '../ComputerBoard/';
 
-export const Title = styled.h1`
-  font-size: 1.5em;
-  text-align: center;
-  color: palevioletred;
+const Wrapper = styled.div`
+  display: flex;
+  flex-flow: row wrap;
+  align-items: stretch;
 `;
 
-const Wrapper = styled.section`
-  padding: 4em;
-  background: papayawhip;
-`;
-
-const App = () => (
+const App = ({ state }) => (
   <Wrapper>
-    <Title>Hello World, this is my first react app!</Title>
+    <HumanBoard shapeSelected={state.human.shape} hasWon={state.human.hasWon} />
+    <Infos round={state.logs.round} scores={state.logs.scores} history={state.logs.history} />
+    <ComputerBoard shapeSelected={state.computer.shape} hasWon={state.computer.hasWon} />
   </Wrapper>
 );
+
+App.propTypes = {
+  state: PropTypes.object.isRequired,
+};
 
 export default App;
