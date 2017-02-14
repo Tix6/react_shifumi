@@ -27,9 +27,9 @@ Score.propTypes = {
 
 const Scores = ({ scores }) =>
   <Wrapper>
-    <Score title="Win" value={scores.humanWin} />
-    <Score title="Tie" value={scores.ties} />
-    <Score title="Win" value={scores.computerWin} />
+    <Score title="Win" value={scores.human} />
+    <Score title="Draw" value={scores.draw} />
+    <Score title="Win" value={scores.computer} />
   </Wrapper>;
 
 Scores.propTypes = {

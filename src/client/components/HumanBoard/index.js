@@ -11,16 +11,25 @@ const ShapeSelect = styled.div`
 
 const shapes = ['rock', 'paper', 'scissors'];
 
-const HumanBoard = ({ shapeSelected, hasWon }) =>
-  <Board title="human" shapeSelected={shapeSelected} hasWon={hasWon} >
+const ShapeSelector = styled.div`
+  cursor: pointer;
+`;
+
+const HumanBoard = ({ shape, hasWon, onSelection }) =>
+  <Board title="human" shape={shape} hasWon={hasWon} >
     <ShapeSelect>
-      { shapes.map((s, id) => <Shape type={s} key={id} />) }
+      { shapes.map((s, id) =>
+        <ShapeSelector onClick={() => onSelection(s)} key={id}>
+          <Shape type={s} />
+        </ShapeSelector>
+      ) }
     </ShapeSelect>
   </Board>;
 
 HumanBoard.propTypes = {
-  shapeSelected: PropTypes.string,
-  hasWon: PropTypes.bool,
+  shape: PropTypes.string.isRequired,
+  hasWon: PropTypes.string.isRequired,
+  onSelection: PropTypes.func.isRequired,
 };
 
 export default HumanBoard;

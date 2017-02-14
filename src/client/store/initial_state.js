@@ -1,36 +1,20 @@
 const initialState = {
   human: {
-    shape: 'rock',
-    hasWon: true,
+    shape: '',
+    hasWon: '',
   },
   computer: {
-    shape: 'paper',
-    hasWon: false,
+    shape: '',
+    hasWon: '',
   },
-  logs: {
-    round: 3,
+  game: {
+    roundCount: 1,
     scores: {
-      humanWin: 1,
-      ties: 2,
-      computerWin: 3,
+      human: 0,
+      computer: 0,
+      draw: 0,
     },
-    history: [
-      {
-        round: 3,
-        human: { shape: 'paper', hasWon: true },
-        computer: { shape: 'rock', hasWon: false },
-      },
-      {
-        round: 2,
-        human: { shape: 'paper', hasWon: true },
-        computer: { shape: 'rock', hasWon: false },
-      },
-      {
-        round: 1,
-        human: { shape: 'paper', hasWon: true },
-        computer: { shape: 'rock', hasWon: false },
-      },
-    ],
+    history: [],
   },
 };
 

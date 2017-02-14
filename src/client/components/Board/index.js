@@ -5,21 +5,20 @@ import Shape from '../Shape/';
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: stretch;
   flex: 1;
 `;
 
 const Title = styled.h2`
-  background-color: red;
+  background-color: #cd4436;
   color: white;
   text-align: center;
   border-radius: 2px;
   padding: 5px;
 `;
 
-const WinAlert = styled.p`
-  color: green;
+const Row = styled.p`
   text-align: center;
   font-size: 3em;
 `;
@@ -29,21 +28,32 @@ const Selected = styled.div`
   justify-content: center;
 `;
 
-const Board = ({ title, shapeSelected, hasWon, children }) =>
+const result = (hasWon) => {
+  switch (hasWon) {
+    case 'yes':
+      return <span style={{ color: 'green' }}>WIN!</span>;
+    case 'no':
+      return '';
+    case 'draw':
+      return <span style={{ color: 'orange' }}>DRAW!</span>;
+    default:
+      return '';
+  }
+};
+
+const Board = ({ title, shape, hasWon, children }) =>
   <Wrapper>
     <Title>{ title }</Title>
     { children }
-    <WinAlert>{ hasWon ? 'WIN!' : '' }</WinAlert>
-    <Selected>
-      <Shape type={shapeSelected} size={5} />
-    </Selected>
+    <Row>{ result(hasWon) }</Row>
+    <Selected><Shape type={shape} size={5} /></Selected>
   </Wrapper>
 ;
 
 Board.propTypes = {
   title: PropTypes.string.isRequired,
-  shapeSelected: PropTypes.string,
-  hasWon: PropTypes.bool,
+  shape: PropTypes.string,
+  hasWon: PropTypes.string.isRequired,
   children: PropTypes.element,
 };
 

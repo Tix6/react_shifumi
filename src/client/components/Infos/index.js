@@ -10,16 +10,16 @@ const Wrapper = styled.div`
   flex: 1;
 `;
 
-const Infos = ({ round, scores, history }) =>
+const Infos = ({ roundCount, scores, history }) =>
   <Wrapper>
     <Scores scores={scores} />
-    <Round number={round} />
+    <Round number={roundCount} />
     <RoundHistory history={history} />
   </Wrapper>
 ;
 
 Infos.propTypes = {
-  round: PropTypes.number,
+  roundCount: PropTypes.number,
   scores: PropTypes.object,
   history: PropTypes.array,
 };

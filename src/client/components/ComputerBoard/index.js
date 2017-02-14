@@ -1,12 +1,26 @@
 import React, { PropTypes } from 'react';
+import styled from 'styled-components';
 import Board from '../Board/';
 
-const ComputerBoard = ({ shapeSelected, hasWon }) =>
-  <Board title="computer" shapeSelected={shapeSelected} hasWon={hasWon} />;
+const Row = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
+const Spinner = () =>
+  <Row>
+    <i className="fa fa-spinner fa-spin fa-5x fa-fw" />
+  </Row>;
+
+const ComputerBoard = ({ shape, hasWon, isThinking }) =>
+  <Board title="computer" shape={shape} hasWon={hasWon}>
+    { isThinking && <Spinner /> }
+  </Board>;
 
 ComputerBoard.propTypes = {
-  shapeSelected: PropTypes.string,
-  hasWon: PropTypes.bool,
+  shape: PropTypes.string.isRequired,
+  hasWon: PropTypes.string.isRequired,
+  isThinking: PropTypes.bool,
 };
 
 export default ComputerBoard;

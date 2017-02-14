@@ -1,7 +1,14 @@
 import React from 'react';
 import { render } from 'react-dom';
+import { Provider } from 'react-redux';
 import App from './components/App';
-import initialState from './store/initial_state';
+import store from './store/';
 
 console.log('mounting react app ...');  // eslint-disable-line no-console
-render(<App state={initialState} />, document.getElementById('__APP__'));
+const Root = (
+  <Provider store={store}>
+    <App />
+  </Provider>
+);
+
+render(Root, document.getElementById('__APP__'));

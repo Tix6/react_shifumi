@@ -1,8 +1,11 @@
 import React, { PropTypes } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import styled from 'styled-components';
 import HumanBoard from '../HumanBoard/';
 import Infos from '../Infos';
 import ComputerBoard from '../ComputerBoard/';
+import { humanTurn } from '../../actions/human';
 
 const Wrapper = styled.div`
   display: flex;
@@ -10,16 +13,21 @@ const Wrapper = styled.div`
   align-items: stretch;
 `;
 
-const App = ({ state }) => (
+const App = ({ human, computer, game, actions }) =>
   <Wrapper>
-    <HumanBoard shapeSelected={state.human.shape} hasWon={state.human.hasWon} />
-    <Infos round={state.logs.round} scores={state.logs.scores} history={state.logs.history} />
-    <ComputerBoard shapeSelected={state.computer.shape} hasWon={state.computer.hasWon} />
-  </Wrapper>
-);
+    <HumanBoard {...human} onSelection={actions.humanTurn} />
+    <Infos {...game} />
+    <ComputerBoard {...computer} />
+  </Wrapper>;
 
 App.propTypes = {
-  state: PropTypes.object.isRequired,
+  human: PropTypes.object,
+  computer: PropTypes.object,
+  game: PropTypes.object,
+  actions: PropTypes.object,
 };
 
-export default App;
+const mapStateToProps = state => state;
+const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ humanTurn }, dispatch) });
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

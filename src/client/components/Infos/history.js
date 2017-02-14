@@ -1,5 +1,7 @@
 import React, { PropTypes } from 'react';
 import styled from 'styled-components';
+import R from 'ramda';
+import uniqid from 'uniqid';
 import Shape from '../Shape/';
 
 const Wrapper = styled.div`
@@ -7,7 +9,18 @@ const Wrapper = styled.div`
   flex-direction: column;
 `;
 
-const shapeColor = ({ hasWon }) => (hasWon ? 'green' : 'red');
+const shapeColor = ({ hasWon }) => {
+  switch (hasWon) {
+    case 'yes':
+      return 'green';
+    case 'no':
+      return 'red';
+    case 'draw':
+      return 'orange';
+    default:
+      return '';
+  }
+};
 
 const RoundRow = styled.div`
   display: flex;
@@ -28,9 +41,13 @@ Round.propTypes = {
   computer: PropTypes.object.isRequired,
 };
 
+const HISTORY_LIMIT = 10;
+
 const RoundHistory = ({ history }) =>
   <Wrapper>
-    { history.map((round, id) => <Round {...round} key={id} />) }
+    { R.compose(
+      R.map(round => <Round {...round} key={uniqid('round-')} />),
+      R.take(HISTORY_LIMIT))(history) }
   </Wrapper>;
 
 RoundHistory.propTypes = {
