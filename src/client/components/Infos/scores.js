@@ -5,6 +5,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  margin-bottom: 20px;
 `;
 
 const ScoreWrapper = styled.div`
@@ -14,10 +15,20 @@ const ScoreWrapper = styled.div`
   text-align: center;
 `;
 
+const ScoreTitle = styled.p`
+  padding: 5px;
+  background-color: #eee;
+  margin-bottom: 10px;
+`;
+
+const ScoreValue = styled.p`
+  font-size: 1.4em;
+`;
+
 const Score = ({ title, value = 0 }) =>
   <ScoreWrapper>
-    <p>{ title }</p>
-    <span>{ value }</span>
+    <ScoreTitle>{ title }</ScoreTitle>
+    <ScoreValue>{ value }</ScoreValue>
   </ScoreWrapper>;
 
 Score.propTypes = {
@@ -27,9 +38,9 @@ Score.propTypes = {
 
 const Scores = ({ scores }) =>
   <Wrapper>
-    <Score title="Win" value={scores.human} />
-    <Score title="Draw" value={scores.draw} />
-    <Score title="Win" value={scores.computer} />
+    <Score title="Wins" value={scores.human} />
+    <Score title="Ties" value={scores.draw} />
+    <Score title="Wins" value={scores.computer} />
   </Wrapper>;
 
 Scores.propTypes = {

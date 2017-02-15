@@ -8,6 +8,7 @@ const Wrapper = styled.div`
   justify-content: space-between;
   align-items: stretch;
   flex: 1;
+  padding: 10px;
 `;
 
 const Title = styled.h2`
@@ -15,7 +16,8 @@ const Title = styled.h2`
   color: white;
   text-align: center;
   border-radius: 2px;
-  padding: 5px;
+  padding: 10px;
+  margin-bottom: 20px;
 `;
 
 const Row = styled.p`
@@ -43,8 +45,10 @@ const result = (hasWon) => {
 
 const Board = ({ title, shape, hasWon, children }) =>
   <Wrapper>
-    <Title>{ title }</Title>
-    { children }
+    <header>
+      <Title>{ title }</Title>
+      { children }
+    </header>
     <Row>{ result(hasWon) }</Row>
     <Selected><Shape type={shape} size={5} /></Selected>
   </Wrapper>

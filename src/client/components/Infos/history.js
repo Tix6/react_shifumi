@@ -26,6 +26,9 @@ const RoundRow = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  color: #aaa;
+  font-size: 0.9em;
+  margin-bottom: 2px;
 `;
 
 const Round = ({ human, round, computer }) =>

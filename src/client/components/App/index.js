@@ -8,9 +8,11 @@ import ComputerBoard from '../ComputerBoard/';
 import { humanTurn } from '../../actions/human';
 
 const Wrapper = styled.div`
+  font-family: 'Lato', sans-serif;
   display: flex;
   flex-flow: row wrap;
   align-items: stretch;
+  min-height: 400px;
 `;
 
 const App = ({ human, computer, game, actions }) =>

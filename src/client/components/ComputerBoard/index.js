@@ -13,7 +13,7 @@ const Spinner = () =>
   </Row>;
 
 const ComputerBoard = ({ shape, hasWon, isThinking }) =>
-  <Board title="computer" shape={shape} hasWon={hasWon}>
+  <Board title="COMPUTER" shape={shape} hasWon={hasWon}>
     { isThinking && <Spinner /> }
   </Board>;
 

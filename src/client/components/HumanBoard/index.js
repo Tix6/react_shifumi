@@ -16,7 +16,7 @@ const ShapeSelector = styled.div`
 `;
 
 const HumanBoard = ({ shape, hasWon, onSelection }) =>
-  <Board title="human" shape={shape} hasWon={hasWon} >
+  <Board title="HUMAN" shape={shape} hasWon={hasWon} >
     <ShapeSelect>
       { shapes.map((s, id) =>
         <ShapeSelector onClick={() => onSelection(s)} key={id}>
