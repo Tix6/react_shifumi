@@ -3,7 +3,7 @@ import { computerTurn } from './computer';
 export const HUMAN_HAS_CHOSEN = 'human/hasChosen';
 export const HUMAN_HAS_WON = 'human/hasWon';
 
-export const shapeChosen = shape => ({
+export const humanHasChosen = shape => ({
   type: HUMAN_HAS_CHOSEN,
   payload: shape,
 });
@@ -13,6 +13,6 @@ export const humanHasWon = () => ({
 });
 
 export const humanTurn = shape => (dispatch) => {
-  dispatch(shapeChosen(shape));
+  dispatch(humanHasChosen(shape));
   computerTurn();
 };

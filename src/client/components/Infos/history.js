@@ -31,7 +31,7 @@ const RoundRow = styled.div`
   margin-bottom: 2px;
 `;
 
-const Round = ({ human, round, computer }) =>
+export const Round = ({ human, round, computer }) =>
   <RoundRow>
     <Shape type={human.shape} color={shapeColor(human)} size={1} />
     <span>Round { round }</span>
@@ -44,7 +44,7 @@ Round.propTypes = {
   computer: PropTypes.object.isRequired,
 };
 
-const HISTORY_LIMIT = 10;
+export const HISTORY_LIMIT = 10;
 
 const RoundHistory = ({ history }) =>
   <Wrapper>

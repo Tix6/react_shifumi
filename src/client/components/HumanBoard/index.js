@@ -19,10 +19,10 @@ const HumanBoard = ({ shape, hasWon, onSelection }) =>
   <Board title="HUMAN" shape={shape} hasWon={hasWon} >
     <ShapeSelect>
       { shapes.map((s, id) =>
-        <ShapeSelector onClick={() => onSelection(s)} key={id}>
+        <ShapeSelector onClick={() => onSelection(s)} key={`shape-${id}`}>
           <Shape type={s} />
-        </ShapeSelector>
-      ) }
+        </ShapeSelector>)
+      }
     </ShapeSelect>
   </Board>;
 

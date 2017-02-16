@@ -1,3 +1,3 @@
-module.exports = {
-  computerShapeUrl: 'https://hook.io/eric-basley/roshambo',
-};
+const dev = require('./development');
+
+module.exports = dev;

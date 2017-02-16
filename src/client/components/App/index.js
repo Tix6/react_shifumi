@@ -15,7 +15,7 @@ const Wrapper = styled.div`
   min-height: 400px;
 `;
 
-const App = ({ human, computer, game, actions }) =>
+export const App = ({ human, computer, game, actions }) =>
   <Wrapper>
     <HumanBoard {...human} onSelection={actions.humanTurn} />
     <Infos {...game} />

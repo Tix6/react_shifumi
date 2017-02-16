@@ -25,7 +25,7 @@ const ScoreValue = styled.p`
   font-size: 1.4em;
 `;
 
-const Score = ({ title, value = 0 }) =>
+export const Score = ({ title, value = 0 }) =>
   <ScoreWrapper>
     <ScoreTitle>{ title }</ScoreTitle>
     <ScoreValue>{ value }</ScoreValue>

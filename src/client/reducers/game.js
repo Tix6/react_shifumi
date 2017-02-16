@@ -1,17 +1,7 @@
 import R from 'ramda';
 import { ROUND_IS_ENDED } from '../actions/game';
 import initialState from '../store/initial_state';
-
-const computeScores = (prevScores, humanHasWon, computerHasWon) => {
-  if (humanHasWon === 'yes') {
-    return { ...prevScores, human: prevScores.human + 1 };
-  } else if (computerHasWon === 'yes') {
-    return { ...prevScores, computer: prevScores.computer + 1 };
-  } else if (humanHasWon === 'draw' && computerHasWon === 'draw') {
-    return { ...prevScores, draw: prevScores.draw + 1 };
-  }
-  throw new Error('scores computation failed');
-};
+import computeScores from '../utils/computeScores';
 
 const game = (state = initialState.game, action = {}) => {
   const { type, payload } = action;

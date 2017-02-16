@@ -4,9 +4,9 @@ import { gameResults } from './game';
 
 export const COMPUTER_HAS_CHOSEN = 'computer/hasChosen';
 export const COMPUTER_HAS_WON = 'computer/hasWon';
-export const COMPUTER_IS_THINKING = 'computer/isThinking';
+export const COMPUTER_IS_THINKING = 'computer/computerIsThinking';
 
-export const shapeChosen = shape => ({
+export const computerHasChosen = shape => ({
   type: COMPUTER_HAS_CHOSEN,
   payload: shape,
 });
@@ -15,15 +15,15 @@ export const computerHasWon = () => ({
   type: COMPUTER_HAS_WON,
 });
 
-export const isThinking = () => ({
+export const computerIsThinking = () => ({
   type: COMPUTER_IS_THINKING,
 });
 
 export const computerTurn = () => {
-  store.dispatch(isThinking());
+  store.dispatch(computerIsThinking());
   const thinkingTime = () => Math.round(Math.random() * 2) + 1;
   const afterThinking = (shape) => {
-    store.dispatch(shapeChosen(shape));
+    store.dispatch(computerHasChosen(shape));
     gameResults();
   };
   fetchComputerShape()

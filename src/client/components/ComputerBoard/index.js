@@ -7,7 +7,7 @@ const Row = styled.div`
   justify-content: center;
 `;
 
-const Spinner = () =>
+export const Spinner = () =>
   <Row>
     <i className="fa fa-spinner fa-spin fa-5x fa-fw" />
   </Row>;

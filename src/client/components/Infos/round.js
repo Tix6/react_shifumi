@@ -12,7 +12,7 @@ const Wrapper = styled.div`
 
 const Round = ({ number = 0 }) =>
   <Wrapper>
-    Round {number}
+    <span id="roundNumber">{`Round ${number}`}</span>
   </Wrapper>;
 
 Round.propTypes = {

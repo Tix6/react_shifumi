@@ -11,7 +11,7 @@ const Wrapper = styled.div`
   padding: 10px;
 `;
 
-const Title = styled.h2`
+export const Title = styled.h2`
   background-color: #cd4436;
   color: white;
   text-align: center;
@@ -33,11 +33,11 @@ const Selected = styled.div`
 const result = (hasWon) => {
   switch (hasWon) {
     case 'yes':
-      return <span style={{ color: 'green' }}>WIN!</span>;
+      return <span id="win" style={{ color: 'green' }}>WIN!</span>;
     case 'no':
       return '';
     case 'draw':
-      return <span style={{ color: 'orange' }}>DRAW!</span>;
+      return <span id="draw" style={{ color: 'orange' }}>DRAW!</span>;
     default:
       return '';
   }
