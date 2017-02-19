@@ -44,13 +44,9 @@ Round.propTypes = {
   computer: PropTypes.object.isRequired,
 };
 
-export const HISTORY_LIMIT = 10;
-
 const RoundHistory = ({ history }) =>
   <Wrapper>
-    { R.compose(
-      R.map(round => <Round {...round} key={uniqid('round-')} />),
-      R.take(HISTORY_LIMIT))(history) }
+    { R.map(round => <Round {...round} key={uniqid('round-')} />)(history) }
   </Wrapper>;
 
 RoundHistory.propTypes = {

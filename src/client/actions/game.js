@@ -1,4 +1,3 @@
-import store from '../store/';
 import whoIsTheWinner from '../utils/whoIsTheWinner';
 import { humanHasWon } from './human';
 import { computerHasWon } from './computer';
@@ -15,12 +14,13 @@ export const nobodyHasWon = () => ({
   type: NOBODY_HAS_WON,
 });
 
-const dispatchWinner = (dispatch, { human, computer }) => {
-  const winner = whoIsTheWinner({
+const winner = () => (dispatch, getState) => {
+  const { human, computer } = getState();
+  const theWinner = whoIsTheWinner({
     human: human.shape,
     computer: computer.shape,
   });
-  switch (winner) {
+  switch (theWinner) {
     case 'human':
       dispatch(humanHasWon());
       break;
@@ -35,8 +35,8 @@ const dispatchWinner = (dispatch, { human, computer }) => {
   }
 };
 
-export const gameResults = () => {
-  dispatchWinner(store.dispatch, store.getState());
-  const { human, computer } = store.getState();
-  store.dispatch(roundIsEnded(human, computer));
+export const gameResults = () => (dispatch, getState) => {
+  dispatch(winner());
+  const { human, computer } = getState();
+  dispatch(roundIsEnded(human, computer));
 };

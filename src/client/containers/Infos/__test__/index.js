@@ -1,10 +1,10 @@
 import React from 'react';
 import chai from 'chai'; // eslint-disable-line
 import { shallow } from 'enzyme'; // eslint-disable-line
-import Infos from '..';
-import Scores from '../scores';
-import Round from '../round';
-import RoundHistory from '../history';
+import { Infos } from '..';
+import Scores from '../../../components/Infos/scores';
+import Round from '../../../components/Infos/round';
+import RoundHistory from '../../../components/Infos/history';
 
 const { describe, it } = global;
 const { expect } = chai;

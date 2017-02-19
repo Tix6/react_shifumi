@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
+import { connect } from 'react-redux';
 import styled from 'styled-components';
-import Board from '../Board/';
+import Board from '../../components/Board/';
 
 const Row = styled.div`
   display: flex;
@@ -12,15 +13,17 @@ export const Spinner = () =>
     <i className="fa fa-spinner fa-spin fa-5x fa-fw" />
   </Row>;
 
-const ComputerBoard = ({ shape, hasWon, isThinking }) =>
+export const ComputerBoard = ({ shape, hasWon, isThinking }) =>
   <Board title="COMPUTER" shape={shape} hasWon={hasWon}>
     { isThinking && <Spinner /> }
   </Board>;
 
 ComputerBoard.propTypes = {
-  shape: PropTypes.string.isRequired,
-  hasWon: PropTypes.string.isRequired,
+  shape: PropTypes.string,
+  hasWon: PropTypes.string,
   isThinking: PropTypes.bool,
 };
 
-export default ComputerBoard;
+const mapStateToProps = state => state.computer;
+
+export default connect(mapStateToProps)(ComputerBoard);

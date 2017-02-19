@@ -1,11 +1,8 @@
-import React, { PropTypes } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import React from 'react';
 import styled from 'styled-components';
-import HumanBoard from '../HumanBoard/';
-import Infos from '../Infos';
-import ComputerBoard from '../ComputerBoard/';
-import { humanTurn } from '../../actions/human';
+import HumanBoard from '../../containers/HumanBoard/'; // eslint-disable-line
+import Infos from '../../containers/Infos'; // eslint-disable-line
+import ComputerBoard from '../../containers/ComputerBoard/'; // eslint-disable-line
 
 const Wrapper = styled.div`
   font-family: 'Lato', sans-serif;
@@ -15,21 +12,11 @@ const Wrapper = styled.div`
   min-height: 400px;
 `;
 
-export const App = ({ human, computer, game, actions }) =>
+export const App = () =>
   <Wrapper>
-    <HumanBoard {...human} onSelection={actions.humanTurn} />
-    <Infos {...game} />
-    <ComputerBoard {...computer} />
+    <HumanBoard />
+    <Infos />
+    <ComputerBoard />
   </Wrapper>;
 
-App.propTypes = {
-  human: PropTypes.object,
-  computer: PropTypes.object,
-  game: PropTypes.object,
-  actions: PropTypes.object,
-};
-
-const mapStateToProps = state => state;
-const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ humanTurn }, dispatch) });
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;

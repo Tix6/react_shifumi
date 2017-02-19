@@ -14,5 +14,5 @@ export const humanHasWon = () => ({
 
 export const humanTurn = shape => (dispatch) => {
   dispatch(humanHasChosen(shape));
-  computerTurn();
+  dispatch(computerTurn());
 };

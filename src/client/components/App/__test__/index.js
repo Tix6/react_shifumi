@@ -2,9 +2,9 @@ import React from 'react';
 import chai from 'chai'; // eslint-disable-line
 import { shallow } from 'enzyme'; // eslint-disable-line
 import { App } from '..';
-import ComputerBoard from '../../ComputerBoard/';
-import HumanBoard from '../../HumanBoard/';
-import Infos from '../../Infos/';
+import ComputerBoard from '../../../containers/ComputerBoard/'; // eslint-disable-line
+import HumanBoard from '../../../containers/HumanBoard/'; // eslint-disable-line
+import Infos from '../../../containers/Infos/'; // eslint-disable-line
 import initialState from '../../../store/initial_state';
 
 const { describe, it } = global;

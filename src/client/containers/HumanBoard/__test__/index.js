@@ -1,9 +1,9 @@
 import React from 'react';
 import chai from 'chai'; // eslint-disable-line
 import { shallow } from 'enzyme'; // eslint-disable-line
-import HumanBoard from '..';
-import Board from '../../Board';
-import Shape from '../../Shape';
+import { HumanBoard } from '..';
+import Board from '../../../components/Board/';
+import Shape from '../../../components/Shape/';
 
 const { describe, it } = global;
 const { expect } = chai;

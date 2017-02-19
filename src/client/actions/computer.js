@@ -1,4 +1,3 @@
-import store from '../store/';
 import fetchComputerShape from '../utils/fetchComputerShape';
 import { gameResults } from './game';
 
@@ -19,12 +18,12 @@ export const computerIsThinking = () => ({
   type: COMPUTER_IS_THINKING,
 });
 
-export const computerTurn = () => {
-  store.dispatch(computerIsThinking());
+export const computerTurn = () => (dispatch) => {
+  dispatch(computerIsThinking());
   const thinkingTime = () => Math.round(Math.random() * 2) + 1;
   const afterThinking = (shape) => {
-    store.dispatch(computerHasChosen(shape));
-    gameResults();
+    dispatch(computerHasChosen(shape));
+    dispatch(gameResults());
   };
   fetchComputerShape()
     .then(shape => setTimeout(() => afterThinking(shape), thinkingTime()))

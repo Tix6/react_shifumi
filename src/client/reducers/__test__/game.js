@@ -7,8 +7,10 @@ const { describe, it } = global;
 const { expect } = chai;
 
 describe('game reducer', () => {
+  const state = Object.freeze(initialState.game);
+
   it('should return the initial state', () => {
-    expect(reducer()).to.deep.equal(initialState.game);
+    expect(reducer()).to.deep.equal(state);
   });
 
   it('should update round, scores and history', () => {
@@ -18,6 +20,6 @@ describe('game reducer', () => {
     const expected = { roundCount: 2,
       scores: { human: 1, computer: 0, draw: 0 },
       history: [{ round: 1, computer, human }] };
-    expect(reducer(undefined, action)).to.deep.equal(expected);
+    expect(reducer(state, action)).to.deep.equal(expected);
   });
 });
